@@ -1,0 +1,453 @@
+/* ========== BASE RESET ========== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 16px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  body {
+    min-height: 100vh;
+    width: 100vw;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* ========== SIDEBAR ========== */
+  .sidebar-header {
+    padding: 5px 10px;
+    background-color: #174a7e;
+    text-align: center;
+    height: 80px;
+    display: flex;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-color: white;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.sidebar {
+width: 220px;
+background-color: #1b5792;
+height: 100vh;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 10;
+display: block;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+
+
+.sidebar-toggle {
+display: none;
+position: fixed;
+top: 16px;
+left: 16px;
+z-index: 200;
+}
+
+.sidebar-overlay {
+display: none;
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+background: rgba(0,0,0,0.3);
+z-index: 999;
+transition: opacity 0.3s;
+}
+
+/* Tampilkan overlay saat sidebar aktif */
+.sidebar.active ~ .sidebar-overlay {
+display: block;
+}
+
+/* SIDEBAR CSS */
+.sidebar-submenu {
+display: none;
+padding-left: 20px;
+font-size: 13px;
+}
+.sidebar-submenu.active {
+display: block;
+}
+.sidebar-dropdown > a {
+cursor: pointer;
+user-select: none;
+}
+
+.sidebar-menu {
+    list-style: none;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.sidebar-menu li:hover {
+    background-color: #3c6996;
+    padding-left: 15px;
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar-logo {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    transform: scale(2.1);
+    transform-origin: center;
+}
+
+.sidebar-menu li a::before {
+    margin-right: 10px;
+}
+
+
+.sidebar-logout-btn {
+width: 100%;
+background: none;
+border: none;
+color: white;
+text-align: left;
+padding: 5px 20px;
+font-size: 15px;
+display: flex;
+align-items: center;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.sidebar-logout-btn i {
+font-size: 18px;
+}
+
+.sidebar-logout-btn:hover {
+background: #c1121a;
+color: #fff;
+}
+
+.sidebar-menu li.active > a,
+.sidebar-menu li a.active {
+background: #082166;
+color: #fff;
+font-weight: bold;
+padding: 10px;
+}
+.sidebar-submenu li.active > a {
+background: #082166;
+color: #fff;
+}
+
+.sidebar-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.sidebar-menu li a::before {
+    margin-right: 0;
+    font-size: 24px;
+}
+
+.sidebar-menu li {
+    text-align: left;
+    padding: 18px 0px;
+}
+
+
+
+  /* ========== CONTAINER & WRAPPER ========== */
+  .main-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin-left: 270px;
+  }
+  
+  .container {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    width: calc(100vw - 275px);
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 32px;
+    position: relative;
+    margin-left: 275px;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 45px;
+    color: #333;
+    font-size: 35px;
+  }
+
+  h4 {
+    text-align: left;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 20px;
+  }
+
+  
+  /* ========== TABLE STYLE ========== */
+  .table-responsive {
+    width: 100%;
+    max-width: 75vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 16px;
+  }
+  
+  .overview-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    font-size: 1em;
+    background: #fff;
+    table-layout: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  
+  .overview-table th {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+    color: #212529;
+     font-size: 20px;
+  }
+  .overview-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+    color: #212529;
+  }
+  
+  .overview-table thead th {
+    background-color: #1b5792;
+    font-weight: bold;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .overview-table tbody tr:nth-child(even) {
+    background: #f8f9fa;
+  }
+  
+  .overview-table tbody tr:hover {
+    background: #e9ecef;
+  }
+  
+  .overview-table tfoot td {
+    font-weight: bold;
+    background: #fafafa;
+    color: #212529;
+  }
+  
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .container {
+      padding: 12px 2vw;
+      max-width: 98vw;
+      margin-left: 70px;
+      width: calc(100vw - 70px);
+    }
+  
+    .sidebar {
+      width: 70px;
+    }
+  
+    .overview-table {
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .main-wrapper {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      position: relative;
+      width: 100vw;
+      height: auto;
+    }
+  
+    .container {
+      width: 100vw;
+      margin-left: 0;
+      padding: 10px 4px;
+      height: auto;
+    }
+  
+    .overview-table {
+      font-size: 0.85em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .overview-table th,
+    .overview-table td {
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+  
+    .overview-table {
+      font-size: 13px;
+    }
+  }
+  
+  @media screen and (orientation: landscape) {
+    .container {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      padding: 12px !important;
+      margin: 0 !important;
+    }
+  
+    .table-responsive {
+      width: 100vw !important;
+    }
+  
+    .overview-table {
+      width: 100% !important;
+      min-width: unset !important;
+      max-width: 100% !important;
+      table-layout: auto;
+    }
+  }
+  
+  /* ========== TAMPILAN UNTUK MOBILE ========== */
+  @media (max-width: 1000px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #1b5792;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 1100;
+      }
+      .sidebar-logo {
+        width: 80px;
+        height: auto;
+        object-fit: contain;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        transform: scale(2.1);
+        transform-origin: center;
+      }
+      /* Saat sidebar aktif, konten tertutupi setengah sidebar-overlay*/
+      .sidebar.active ~ .content {
+        margin-left: 50vw;
+        width: 50vw;
+      }
+  
+    .container {
+      margin-left: 0;
+      transition: margin-left 0.3s, width 0.3s;
+    }
+  
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100vw;
+      overflow: hidden;
+      margin-left: 0px;
+    }
+    .table-responsive {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 16px;
+      }
+      
+  }
+
+  /* Pastikan setiap tabel bisa di-scroll secara independen */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 24px;
+  }
+  
+  /* Pastikan body bisa scroll penuh meskipun banyak tabel */
+  body, html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+  
+  /* Hapus tinggi tetap yang mencegah konten lebih dari 1 tabel tampil*/
+  .main-wrapper,
+  .container {
+    height: auto !important;
+    max-height: unset !important;
+    overflow-y: visible !important;
+  }
+  
+  
