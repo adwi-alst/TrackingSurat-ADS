@@ -1,0 +1,507 @@
+/* ===== GLOBAL STYLES ===== */
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+      /* ===== CONTAINER & LAYOUT ===== */
+      .container {
+    flex: 1;
+    margin-left: 260px;
+    padding: 40px 24px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    background: #f0f2f5;
+    min-height: 100vh;
+    box-sizing: border-box;
+    /* Tambahan agar konten bisa di-scroll sendiri */
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      margin-left: 0;
+      padding: 20px 8px;
+      gap: 24px;
+      max-height: 100vh;
+    }
+  
+    .features-table td:nth-child(2),
+    .features-table2 td:nth-child(2) {
+      max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+  }
+  
+  /* Agar tabel tidak keluar dari intro-section */
+  .intro-section {
+    overflow-x: auto;
+  }
+  
+  /* Form input agar tidak melebar keluar card */
+  .form-group input {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  
+  /* ===== INTRO SECTION (TABEL) ===== */
+  .intro-section {
+    flex: 1 1 60%;
+    min-width: 0;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 18px rgba(60,72,88,0.08);
+    padding: 32px 24px;
+    margin-bottom: 0;
+  }
+  .intro-section h2 {
+    margin-top: 0;
+    color: #38495a;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ===== MODERN TABLE ===== */
+  .features-table, .features-table2 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 10px rgba(60,72,88,0.07);
+    margin-bottom: 32px;
+    max-width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+  .features-table th, .features-table2 th {
+    background: #1b5792;
+    color: #fff;
+    padding: 14px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+  }
+  .features-table td, .features-table2 td {
+    padding: 12px 12px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 0.98rem;
+    color: #38495a;
+  }
+  
+  .features-table th, .features-table2 th,
+  .features-table td, .features-table2 td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .features-table tr:last-child td,
+  .features-table2 tr:last-child td {
+    border-bottom: none;
+  }
+
+  
+  /* ===== ACTION BUTTONS ===== */
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  .edit-button, .delete-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.97rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .edit-button {
+    background: #007bff;
+    color: #fff;
+  }
+  .edit-button:hover {
+    background: #0056b3;
+  }
+  .delete-button {
+    background: #e53935;
+    color: #fff;
+  }
+  .delete-button:hover {
+    background: #b71c1c;
+  }
+  
+  /* Center tombol di kolom aksi tabel */
+  .features-table td:nth-child(3),
+  .features-table2 td:nth-child(3) {
+    text-align: center;
+    vertical-align: middle;
+    /* Untuk memastikan div action-buttons juga center */
+  }
+  
+  
+  /* ===== REGISTER CARD ===== */
+  .register-container {
+    flex: 1 1 34%;
+    min-width: 260px;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 18px rgba(60,72,88,0.08);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .register-title {
+    color: #007bff;
+    margin-bottom: 26px;
+    text-align: center;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  
+  /* ===== FORM INPUT ===== */
+  .form-group {
+    position: relative;
+    margin-bottom: 22px;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 12px 40px 12px 36px;
+    border: 1.5px solid #bdbdbd;
+    border-radius: 7px;
+    font-size: 1rem;
+    outline: none;
+    background: #fafbfc;
+    transition: border 0.2s;
+  }
+  .form-group input:focus {
+    border-color: #007bff;
+  }
+
+  .form-placeholder {
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 0.98rem;
+    pointer-events: none;
+    transition: 0.2s;
+  }
+
+  .input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #007bff;
+  cursor: pointer;
+  z-index: 2;
+}
+  
+  #togglePassword {
+    right: 10px;
+    left: auto;
+    cursor: pointer;
+  }
+  
+  /* ===== REGISTER BUTTON ===== */
+  .register-button {
+    width: 100%;
+    padding: 12px 0;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .register-button:hover {
+    background: #0056b3;
+  }
+  
+  
+      /* ===== SIDEBAR DARK MODERN ===== */
+      .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    background: #1b5792;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.07);
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-header {
+    padding: 18px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sidebar-logo {
+    max-width: 190px;
+    height: auto;
+    margin-bottom: 8px;
+    margin-left: -5px;
+  }
+  
+  .sidebar-divider {
+    border: none;
+    border-top: 1px solid #506179;
+    margin: 10px 0 10px 0;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .sidebar-menu li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 0.99rem;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    font-weight: normal;
+  }
+  
+  .sidebar-menu li:not(:last-child) {
+    border-bottom: 1px solid #506179;
+  }
+  
+  .sidebar-menu li.active,
+  .sidebar-menu li.sidebar-menu-register {
+    background: #082166;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .sidebar-menu li:hover {
+    background: #082166;
+    color: #fff;
+  }
+  
+  .sidebar-menu a {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .sidebar-menu li i {
+    font-size: 1.1em;
+    width: 22px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .container {
+      flex-direction: row;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .intro-section, .register-container {
+      min-width: 0;
+      flex: 1 1 50%;
+      max-width: 100%;
+      
+    }
+    .action-buttons {
+      flex-direction: column;
+      gap: 6px;
+      align-items: stretch;
+    }
+    .action-buttons > * {
+      width: 100%;
+    }
+    .action-buttons button,
+    .action-buttons form {
+      width: 100%;
+    }
+  }
+  
+  
+   /* ========== SIDEBAR TOGGLE FOR MOBILE ========== */
+@media (max-width: 1000px) {
+    body {
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .sidebar {
+      position: static;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      align-items: center;
+      box-shadow: none;
+      border-bottom: 1px solid #506179;
+      padding: 0;
+      justify-content: space-between;
+      min-height: unset;
+      display: flex;
+    }
+    .sidebar-header {
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      margin: 0;
+    }
+    .sidebar-logo {
+      max-width: 100px;
+      margin-bottom: 0;
+      margin-left: 2px;
+    }
+    .sidebar-divider {
+      display: none;
+    }
+    .sidebar-menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 0;
+      padding: 0 10px 0 0;
+      width: auto;
+      flex: none;
+      background: none;
+      box-shadow: none;
+    }
+    .sidebar-menu li {
+      display: none !important; /* Sembunyikan semua menu */
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-menu li.sidebar-menu-back {
+      display: flex !important; /* Hanya tampilkan tombol back */
+      align-items: center;
+      border: none;
+      background: none;
+      padding: 0 10px;
+      font-size: 1rem;
+    }
+    .sidebar-menu-back a {
+      padding: 0;
+      color: #fff;
+      background: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .register-container{
+      margin-left: 15px;
+    }
+    .intro-section {
+      height: 70vh;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .action-buttons {
+      flex-direction: column;
+      gap: 6px;
+      align-items: stretch;
+    }
+    .action-buttons > * {
+      width: 100%;
+    }
+    .action-buttons button,
+    .action-buttons form {
+      width: 100%;
+    }
+  }
+  
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    z-index: 1001;
+    min-width: 300px;
+  }
+  .modal-content .close {
+    position: absolute;
+    right: 20px; top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .notif-popup {
+    position: fixed;
+    top: 250px;
+    right: 550px;
+    z-index: 2000;
+    padding: 20px 70px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 26px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  .notif-success { background: #03f80f; }
+  .notif-error { background: #e74c3c; }
+  
+  @media (max-width: 600px) {
+    .notif-popup {
+      top: 45px;
+      right: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+      max-width: 350px;
+      padding: 12px 10px;
+      font-size: 1.1rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+  
